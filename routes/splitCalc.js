@@ -2,7 +2,6 @@ const splitCalc = (data) => {
 
     
 const {ID, Amount, SplitInfo} = data;
-const splitLength = SplitInfo.length;
 let Balance = Amount;
 let SplitBreakdown = [];
 let result = {
@@ -29,8 +28,7 @@ SplitInfo.forEach(element => {
     } 
 });
 
-if(splitPerc.length>0){
-    splitPerc.forEach(element => {
+splitPerc.forEach(element => {
         let {SplitValue, SplitEntityId} = element;
         let perc = ((SplitValue * Balance) / 100);
         Balance = Balance - perc;
@@ -43,7 +41,7 @@ if(splitPerc.length>0){
     }
     
     );
-}
+
 
 if(splitRatio.length>0){
 
